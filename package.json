@@ -1,0 +1,27 @@
+{
+  "name": "track-star",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index",
+    "seeds": "node db/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/t-starkw/track-star.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/t-starkw/track-star/issues"
+  },
+  "homepage": "https://github.com/t-starkw/track-star#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^8.2.5",
+    "mysql2": "^2.3.3"
+  }
+}
