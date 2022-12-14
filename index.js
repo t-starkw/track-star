@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const cTable = require('console.table');
 const mysql = require('mysql2');
 
 const db = mysql.createConnection({
@@ -40,10 +41,10 @@ const init = async () => {
                 viewDept();
                 break;
             case 'View all Roles':
-                // viewRole();
+                viewRole();
                 break;
             case 'View all Employees':
-                // viewEmpl()
+                viewEmpl()
                 break;
             case 'Add Department':
                 // addDept();
@@ -69,13 +70,30 @@ const init = async () => {
     };
 };
 // VIEW funcs
-const viewDept = () => {
-    console.log("Department Database");
-    db.query(
-        `SELECT * FROM Departments`,
-        (err, results) => {
-            console.log(results);
-        }
-    )
+const viewDept = async () => {
+    console.log('Department Data')
+    db.query(`SELECT * FROM departments`, (err, res) => {
+        if (err) throw err;
+        console.table(res);
+        init();
+    });
+};
+
+const viewRole = async () => {
+    console.log('Role Data')
+    db.query(`SELECT * FROM roles`, (err, res) => {
+        if (err) throw err;
+        console.table(res);
+        init();
+    });
+};
+
+const viewEmpl = async () => {
+    console.log('Employee Data')
+    db.query(`SELECT * FROM employees`, (err, res) => {
+        if (err) throw err;
+        console.table(res);
+        init();
+    });
 };
 
